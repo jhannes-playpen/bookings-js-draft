@@ -55,4 +55,11 @@ Database
 7. In pgAdmin add a new role with name 'application' and password 'secret'.
    Create a new database 'bookings' owned by 'application'
 8. Update the server/spec/workerService.spec.js to connect with sequelize
+9. Move the sequelize code to workerService.js
 
+Deployment
+----------
+1. heroku create
+2. heroku addons:add heroku-postgresql:dev
+3. Change server/index.js to use DATABASE_URL
+4. git push heroku master
