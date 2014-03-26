@@ -2,12 +2,15 @@ Developing an Angular application with NodeJS
 
 Using the project:
 ==================
-1. Install NodeJS, Growl and Growlnotify
+1. Install NodeJS, Growl + Growlnotify, Postgres
 2. npm install -g karma karma-cli bower nodemon mocha
 3. npm install
 4. bower install
 5. karma start - starts the test runner (and locks the window)
 6. nodemon server/index.js - starts the server (and locks the window)
+7. In pgAdmin, add new role 'application' with password 'secret'
+   and database 'bookings' owned by 'application'
+8. mocha --watch --growl server/spec
 
 
 
@@ -49,5 +52,7 @@ Database
 4. mocha --watch --growl server/spec
 5. Install Postgresql from http://www.postgresql.org/download/
 6. npm install --save sequelize
-
+7. In pgAdmin add a new role with name 'application' and password 'secret'.
+   Create a new database 'bookings' owned by 'application'
+8. Update the server/spec/workerService.spec.js to connect with sequelize
 

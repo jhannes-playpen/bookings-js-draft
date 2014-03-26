@@ -1,7 +1,20 @@
 
 var expect = require('expect.js');
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('bookings', 'application', 'secret',  {
+  dialect: 'postgres', log: false
+});
+
 
 describe('workerService', function() {
+  
+  beforeEach(function(done) {
+    sequelize.authenticate().success(function() {
+      done();
+    })
+  });
+
+
   var workerService = require('../workerService');
 
   it('includes saved workers', function(done) {
