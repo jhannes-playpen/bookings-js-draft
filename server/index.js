@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-var db_url = procesas.env.DATABASE_URL || 'postgres://application:secret@localhost/bookings_dev';
+var db_url = process.env.DATABASE_URL || 'postgres://application:secret@localhost/bookings_dev';
 var port = process.env.PORT || 3000;
 
 var Sequelize = require('sequelize');
