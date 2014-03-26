@@ -1,5 +1,15 @@
 Developing an Angular application with NodeJS
 
+Using the project:
+==================
+1. Install NodeJS, Growl and Growlnotify
+2. npm install -g karma karma-cli bower nodemon mocha
+3. npm install
+4. bower install
+5. karma start - starts the test runner (and locks the window)
+6. nodemon server/index.js - starts the server (and locks the window)
+
+
 
 Development log
 ===============
@@ -30,4 +40,14 @@ Development log
 9. Add toastr to index.html and karma.conf.js
 9. Add post router to server/index.js
 9. Extract server/workerService.js
+
+Database
+--------
+1. npm install -g mocha
+2. Create server/spec/workerService.spec.js
+3. npm install --save-dev expect.js
+4. mocha --watch --growl server/spec
+5. Install Postgresql from http://www.postgresql.org/download/
+6. npm install --save sequelize
+
 
