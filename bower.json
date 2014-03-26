@@ -1,0 +1,19 @@
+{
+  "name": "booking-js",
+  "version": "0.0.0",
+  "authors": [
+    "Johannes Brodwall <johannes@brodwall.com>"
+  ],
+  "description": "Book workers for projects - DEAN stack demo app",
+  "moduleType": [
+    "node"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
