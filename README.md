@@ -59,7 +59,10 @@ Database
 
 Deployment
 ----------
-1. heroku create
-2. heroku addons:add heroku-postgresql:dev
-3. Change server/index.js to use DATABASE_URL
-4. git push heroku master
+1. npm install bower --save-dev
+2. Add start and postinstall scripts to package.json
+3. heroku create
+4. heroku addons:add heroku-postgresql:dev
+5. Change server/index.js to use DATABASE_URL
+6. git push heroku master
+7. heroku ps:scale web=1
