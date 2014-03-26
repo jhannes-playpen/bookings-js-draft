@@ -22,3 +22,5 @@ Development log
 9. Create the server app under server/index.js
 9. npm install -g nodemon
 9. nodemon server/index.js
+9. bower install --save bootstrap
+9. Copy the starter template to public/index.html and update paths
