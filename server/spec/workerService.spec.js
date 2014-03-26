@@ -1,8 +1,8 @@
 var expect = require('expect.js');
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('bookings', 'application', 'secret',  {
-  dialect: 'postgres', log: true
+var sequelize = new Sequelize('postgres://application:secret@localhost/bookings',  {
+  logging: false
 });
 
 
