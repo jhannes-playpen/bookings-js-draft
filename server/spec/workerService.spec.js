@@ -1,18 +1,46 @@
 
 var expect = require('expect.js');
+var _ = require('underscore');
+
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('bookings', 'application', 'secret',  {
-  dialect: 'postgres', log: false
+  dialect: 'postgres', log: true
+});
+
+var Worker = sequelize.define('Worker', {
+  displayName: Sequelize.STRING,
+  designation: Sequelize.STRING
 });
 
 
 describe('workerService', function() {
   
   beforeEach(function(done) {
-    sequelize.authenticate().success(function() {
+    sequelize.sync({ force: true }).success(function() {
       done();
     })
   });
+
+  it('saves workers in db', function(done) {
+    var worker = {displayName: 'JBR', designation: 'CTO'};
+
+    Worker.create(worker).
+      success(function() {
+        Worker.findAll().success(function(data) {
+          var workers = _(data).collect(function(v) { 
+            return {
+              displayName: v.dataValues.displayName,
+              designation: v.dataValues.designation
+            };
+          });
+
+          expect(workers).to.eql([worker]);
+          done();
+        });
+      });
+  });
+
+
 
 
   var workerService = require('../workerService');
