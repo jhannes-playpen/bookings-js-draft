@@ -22,6 +22,33 @@ describe('worker controller', function() {
     expect(scope.workers).to.contain(worker1);
   });
 
+  it('has a template for a new worker', function() {
+    expect(scope.newWorker).to.be.ok;
+  });
+
+  it('saves worker', function() {
+    var worker = { displayName: 'Chamath',  designation: 'ATL' };
+    scope.newWorker = worker;
+
+    http.expectPOST('/api/workers', worker)
+      .respond(201);
+    scope.create();
+
+    http.flush();
+    expect(scope.newWorker).to.eql({displayName: '', designation: ''});
+  });
+
+  it('deals with errors', function() {
+    var worker = { displayName: 'Chamath',  designation: 'ATL' };
+    scope.newWorker = worker;
+
+    http.expectPOST('/api/workers').respond(404);
+    scope.create();
+    http.flush();
+
+    expect(scope.newWorker).to.eql(worker);
+  });
+
 
 
 });

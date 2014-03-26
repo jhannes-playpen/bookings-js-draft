@@ -25,3 +25,8 @@ Development log
 9. bower install --save bootstrap
 9. Copy the starter template to public/index.html and update paths
 9. Add a section for the workers controller to public/index.html
+9. Add save function to workerCtrl and index.html
+9. bower install --save toastr to include messages
+9. Add toastr to index.html and karma.conf.js
+9. Add post router to server/index.js
+9
