@@ -32,10 +32,12 @@ describe('worker controller', function() {
 
     http.expectPOST('/api/workers', worker)
       .respond(201);
+    http.expectGET('/api/workers').respond([worker]);
     scope.create();
 
     http.flush();
     expect(scope.newWorker).to.eql({displayName: '', designation: ''});
+    expect(scope.workers).to.eql([worker]);
   });
 
   it('deals with errors', function() {
