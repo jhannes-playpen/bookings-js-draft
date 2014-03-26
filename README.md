@@ -24,3 +24,4 @@ Development log
 9. nodemon server/index.js
 9. bower install --save bootstrap
 9. Copy the starter template to public/index.html and update paths
+9. Add a section for the workers controller to public/index.html
