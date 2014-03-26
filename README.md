@@ -29,4 +29,5 @@ Development log
 9. bower install --save toastr to include messages
 9. Add toastr to index.html and karma.conf.js
 9. Add post router to server/index.js
-9
+9. Extract server/workerService.js
+

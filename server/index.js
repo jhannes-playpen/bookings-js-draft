@@ -4,20 +4,8 @@ var app = express();
 app.use(express.static(__dirname + '/../public'));
 app.use(express.json());
 
-var workers = [
-  { displayName: 'Lasantha', designation: 'BA' },
-  { displayName: 'Sankalpa', designation: 'SSE' }
-];
-
-app.get('/api/workers', function(req, res) {
-  res.send(workers);
-});
-
-app.post('/api/workers', function(req, res) {
-  workers.push(req.body);
-  res.send(201);
-});
-
+var service = require('./service');
+service(app, '/api/workers', require('./workerService'));
 
 var port = process.env.PORT || 3000;
 app.listen(port);
